@@ -29,6 +29,7 @@ class DatabaseSeeder extends Seeder
             'post_count' => 50,
             'post_meta_count' => 5,
             'relation_count' => 5,
+            'commerce_count' => 30,
         ];
 
         //user seeder
@@ -61,6 +62,12 @@ class DatabaseSeeder extends Seeder
             'relation' => $param['relation_count'],
             'post' => $param['post_count'],
             'term' => $param['term_count'],
+        ]);
+
+        //commerce seeder
+        $this->call(CommerceSeeder::class, false, [
+            'commerce' => $param['commerce_count'],
+            'user' => $param['user_count'],
         ]);
     }
 }
