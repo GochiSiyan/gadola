@@ -27,6 +27,7 @@ class DatabaseSeeder extends Seeder
             'user_count' => 10,
             'term_count' => 10,
             'post_count' => 50,
+            'relation_count' => 5,
         ];
 
         //user seeder
@@ -46,6 +47,13 @@ class DatabaseSeeder extends Seeder
         //post seeder
         $this->call(PostSeeder::class, false, [
             'post' => $param['post_count'],
+        ]);
+
+        //relationship seeders
+        $this->call(RelationshipSeeder::class, false, [
+            'relation' => $param['relation_count'],
+            'post' => $param['post_count'],
+            'term' => $param['term_count'],
         ]);
     }
 }
