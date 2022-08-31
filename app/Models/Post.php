@@ -10,4 +10,14 @@ class Post extends Model
     use HasFactory;
 
     protected $fillable = ['title', 'status', 'slug'];
+
+    public function metas()
+    {
+        return $this->hasMany(PostMeta::class);
+    }
+
+    public function terms()
+    {
+        return $this->belongsToMany(Term::class)->using(Relationship::class);
+    }
 }
