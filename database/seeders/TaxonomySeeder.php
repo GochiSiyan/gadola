@@ -12,17 +12,8 @@ class TaxonomySeeder extends Seeder
      *
      * @return void
      */
-    public function run()
+    public function run($taxonomy)
     {
-        Taxonomy::insert([
-            [
-                'name' => 'category',
-                'description' => 'category taxonomy',
-            ],
-            [
-                'name' => 'tag',
-                'description' => 'tag taxonomy',
-            ],
-        ]);
+        Taxonomy::insert($taxonomy);
     }
 }
