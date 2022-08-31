@@ -24,7 +24,8 @@ class StoreTermRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'name' => ['required','string', 'max:255'],
+            'description' => ['string'],
         ];
     }
 }
