@@ -14,7 +14,7 @@ class TermFactory extends Factory
     public function definition()
     {
         return [
-            'name' => $this->faker->name(),
+            'name' => $this->faker->unique()->word(),
             'description' => $this->faker->paragraph(rand(2, 5)),
         ];
     }
