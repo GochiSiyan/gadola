@@ -10,11 +10,11 @@ class Relationship extends Pivot
 
     public function post()
     {
-        return $this->belongsTo(Post::class);
+        return $this->belongsTo(Post::class, 'post_id');
     }
 
     public function term()
     {
-        return $this->belongsTo(Term::class);
+        return $this->belongsTo(Term::class, 'term_id');
     }
 }

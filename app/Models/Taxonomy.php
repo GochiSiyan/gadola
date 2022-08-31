@@ -13,6 +13,6 @@ class Taxonomy extends Model
 
     public function terms()
     {
-        return $this->hasMany(Term::class);
+        return $this->hasMany(Term::class)->using(Relationship::class);
     }
 }
