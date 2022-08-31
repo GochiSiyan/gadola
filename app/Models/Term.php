@@ -9,5 +9,5 @@ class Term extends Model
 {
     use HasFactory;
 
-    protected $fillables = ['name', 'description', 'taxonomy_id'];
+    protected $fillable = ['name', 'description', 'taxonomy_id'];
 }
