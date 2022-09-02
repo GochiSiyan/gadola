@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\UserMeta;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -25,6 +26,7 @@ class DatabaseSeeder extends Seeder
                 ],
             ],
             'user_count' => 10,
+            'user_meta_count' => 5,
             'term_count' => 10,
             'post_count' => 50,
             'post_meta_count' => 5,
@@ -36,6 +38,12 @@ class DatabaseSeeder extends Seeder
 
         // user seeder
         \App\Models\User::factory($param['user_count'])->create();
+
+        // user meta seeder
+        $this->call(UserMetaSeeder::class, false, [
+            'users' => $param['user_count'],
+            'meta' => $param['user_meta_count'],
+        ]);
 
         // taxonomy seeder
         $this->call(TaxonomySeeder::class, false, [
