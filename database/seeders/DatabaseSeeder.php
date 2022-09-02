@@ -30,44 +30,54 @@ class DatabaseSeeder extends Seeder
             'post_meta_count' => 5,
             'relation_count' => 5,
             'commerce_count' => 30,
+            'cart_count' => 10,
         ];
 
-        //user seeder
+        // user seeder
         \App\Models\User::factory($param['user_count'])->create();
 
-        //taxonomy seeder
+        // taxonomy seeder
         $this->call(TaxonomySeeder::class, false, [
             'taxonomy' => $param['taxonomy'],
         ]);
 
-        //term seeder
+        // term seeder
         $this->call(TermSeeder::class, false, [
             'taxonomy' => count($param['taxonomy']),
             'term' => $param['term_count'],
         ]);
 
-        //post seeder
+        // post seeder
         $this->call(PostSeeder::class, false, [
             'post' => $param['post_count'],
         ]);
 
-        //post meta seeder
+        // post meta seeder
         $this->call(PostMetaSeeder::class, false, [
             'post' => $param['post_count'],
             'meta' => $param['post_meta_count'],
         ]);
 
-        //relationship seeders
+        // relationship seeders
         $this->call(RelationshipSeeder::class, false, [
             'relation' => $param['relation_count'],
             'post' => $param['post_count'],
             'term' => $param['term_count'],
         ]);
 
-        //commerce seeder
+        // commerce seeder
         $this->call(CommerceSeeder::class, false, [
             'commerce' => $param['commerce_count'],
             'user' => $param['user_count'],
         ]);
+
+        // commerce data seeder
+        $this->call(CommerceDataSeeder::class, false, [
+            'count' => $param['cart_count'],
+            'commerces' => $param['commerce_count'],
+            'posts' => $param['post_count'],
+        ]);
+
+        
     }
 }
